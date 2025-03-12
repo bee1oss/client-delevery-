@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator<TypeRootStackParamList>()
 const Navigation: FC = () => {
     return (
         <NavigationIndependentTree>
-            <Stack.Navigator>
+            <Stack.Navigator 
+            screenOptions={{
+                headerShown: false,
+                contentStyle: {backgroundColor: '#fff'}
+                }}>
                 {
                     routes.map((route) => (
                         <Stack.Screen key={route.name}
