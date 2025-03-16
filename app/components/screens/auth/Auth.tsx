@@ -3,7 +3,8 @@ import {FC, useState} from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IAuthFormData } from '@/app/types/auth.interface';
 import Loader from '../../ui/Loader';
-import Button from '../../ui/Button';
+import Button from '../../ui/button/Button';
+import AuthFields from './AuthFields';
 
 const Auth: FC = () => {
     const [isReg, setIsReg] = useState(false);
@@ -27,7 +28,8 @@ const Auth: FC = () => {
                 {isLoading ? (
                     <Loader />
                 ):(
-                    <>{/*Auth Fields */}
+                    <>
+                    <AuthFields controll={control} />
                         <Button onPress={handleSubmit(onSubmit)}>{isReg ? 'Register' : 'Login'}</Button>
                         <Pressable onPress={() => setIsReg(!isReg)}>
                             <Text className='text-black text-center text-base mt-6'>
