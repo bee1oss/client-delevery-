@@ -2,13 +2,16 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Navigation from "./navigation/Navigation";
 import "../global.css"
+import AuthProvider from "./providers/auth/AuthProvider";
 
 export default function Index() {
   return (
     <>
-      <SafeAreaProvider>
-          <Navigation />
-      </SafeAreaProvider>
+      <AuthProvider>
+        <SafeAreaProvider>
+            <Navigation />
+        </SafeAreaProvider>
+      </AuthProvider>
       <StatusBar style="light" />
     </>
   );
